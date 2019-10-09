@@ -1,26 +1,60 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+import { MovieList } from './components/movie-list/movie-list.component';
+
+import Logo from './img/logo.png';
+import './App.css';
+import Test from './test/test.component';
+import Tailwind from './tailwind/tailwind.component';
+
+class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      movies: [],
+      searchField: '',
+      page: '2'
+    };
+  }
+
+  componentDidMount() {
+    fetch(
+      `https://api.themoviedb.org/3/movie/popular?api_key=407a626cc10a99287f2964816749416a&language=en-US&page=1`
+    )
+      .then(response => response.json())
+      .then(results => this.setState({ movies: results.results }));
+  }
+
+  render() {
+    const { movies, searchField } = this.state;
+    const filteredMovies = movies.filter(movie =>
+      movie.title.toLowerCase().includes(searchField.toLowerCase())
+    );
+    return (
+      <div className="App">
+        <nav
+          style={{
+            display: `flex`,
+            justifyContent: `space-around`,
+            alignItems: `center`
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+          <img src={Logo} className="h-40" alt="imagemovie" />
+        </nav>
+        <Tailwind />
+        <Test />
+
+        {/* <input
+          type="search"
+          placeholder="Search Here"
+          onChange={e => this.setState({ searchField: e.target.value })}
+        /> */}
+
+        <MovieList movies={filteredMovies} />
+      </div>
+    );
+  }
 }
 
 export default App;
