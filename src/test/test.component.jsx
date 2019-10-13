@@ -3,7 +3,7 @@ import FullList from '../components/full-list/full-list.component';
 import './test.styles.scss';
 
 const URL = 'https://api.themoviedb.org/3/search/movie?api_key=';
-const API_KEY = '407a626cc10a99287f2964816749416a';
+const API_KEY = process.env.REACT_APP_API_KEY;
 const language = '&language=en-US';
 const query = '&query=';
 

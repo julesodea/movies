@@ -6,6 +6,7 @@ import Logo from './img/logo.png';
 import './App.css';
 import Test from './test/test.component';
 import Tailwind from './tailwind/tailwind.component';
+const API_KEY = process.env.REACT_APP_API_KEY;
 
 class App extends Component {
   constructor() {
@@ -20,7 +21,7 @@ class App extends Component {
 
   componentDidMount() {
     fetch(
-      `https://api.themoviedb.org/3/movie/popular?api_key=407a626cc10a99287f2964816749416a&language=en-US&page=1`
+      `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&page=1`
     )
       .then(response => response.json())
       .then(results => this.setState({ movies: results.results }));
