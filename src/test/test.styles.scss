@@ -29,14 +29,14 @@ input {
 }
 button {
   border-radius: 3px;
-  background: rgb(48, 48, 48);
-  border: none;
-  padding: 10px 22px;
-  color: white;
+  background: none;
+  border: 1px solid rgb(31, 31, 31);
+  padding: 5px 12px;
+  color: rgb(31, 31, 31);
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: 12px;
   outline: none;
-  margin: 1rem;
+
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   @media only screen and (max-width: 800px) {
     display: flex;
@@ -45,8 +45,11 @@ button {
     font-size: 10px;
   }
   &:active {
-    background: black;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.07);
+    outline: none;
+  }
+  &:focus {
+    outline: none;
   }
 }
 .screen {

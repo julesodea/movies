@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 
 import { MovieList } from './components/movie-list/movie-list.component';
+import Toggle from './components/toggle/Togglerpc';
 
 import Logo from './img/logo.png';
 import './App.css';
 import Test from './test/test.component';
-import Tailwind from './tailwind/tailwind.component';
+
+import Modal from './components/modal/modal';
+
 const API_KEY = process.env.REACT_APP_API_KEY;
 
 class App extends Component {
@@ -15,7 +18,8 @@ class App extends Component {
     this.state = {
       movies: [],
       searchField: '',
-      page: '2'
+      page: '2',
+      trailers: []
     };
   }
 
@@ -25,6 +29,12 @@ class App extends Component {
     )
       .then(response => response.json())
       .then(results => this.setState({ movies: results.results }));
+
+    fetch(
+      `https://api.themoviedb.org/3/movie/475557/videos?api_key=407a626cc10a99287f2964816749416a&language=en-US`
+    )
+      .then(response => response.json())
+      .then(users => this.setState({ trailers: users.results }));
   }
 
   render() {
@@ -43,15 +53,8 @@ class App extends Component {
         >
           <img src={Logo} className="h-40" alt="imagemovie" />
         </nav>
-        <Tailwind />
+
         <Test />
-
-        {/* <input
-          type="search"
-          placeholder="Search Here"
-          onChange={e => this.setState({ searchField: e.target.value })}
-        /> */}
-
         <MovieList movies={filteredMovies} />
       </div>
     );

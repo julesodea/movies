@@ -1,0 +1,22 @@
+.modal-wrapper {
+  position: fixed;
+  top: 70px;
+  left: 50px;
+  right: 50px;
+  bottom: 50px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  background-color: white;
+  border-radius: 5px;
+  padding: 15px;
+  overflow: auto;
+  button {
+    background: rgb(240, 50, 50);
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    &:active {
+      background: rgb(211, 67, 67);
+      outline: none;
+    }
+  }
+}

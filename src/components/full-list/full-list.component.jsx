@@ -1,5 +1,8 @@
 import React from 'react';
 import './full-list.styles.scss';
+import Toggle from '../toggle/Togglerpc';
+import Modal from '../modal/modal';
+import Trailer from '../trailer/trailer';
 
 const FullList = props => (
   <div className="container full-movie-list-container">
@@ -18,6 +21,33 @@ const FullList = props => (
     <strong>Released: </strong> {props.movie.release_date} <br />
     <strong>Popularity: </strong> {props.movie.vote_average}
     <p>{props.movie.overview}</p>
+    <Toggle>
+      {({ on, toggle }) => (
+        <div>
+          <button className="more" onClick={toggle}>
+            More
+          </button>
+          <Modal on={on} toggle={toggle}>
+            <div className="movie-modal">
+              <div
+                className="image"
+                style={{
+                  backgroundImage: `url(https://image.tmdb.org/t/p/original${props.movie.backdrop_path})`
+                }}
+              />
+              <div>
+                <h1>{props.movie.title}</h1>
+                <p>{props.movie.release_date}</p>
+                <p>{props.movie.vote_average}/10</p>
+                <p>{props.movie.vote_count}</p>
+                <p>{props.movie.overview}</p>
+              </div>
+            </div>
+            <Trailer id={props.movie.id} />
+          </Modal>
+        </div>
+      )}
+    </Toggle>
   </div>
 );
 

@@ -84,12 +84,17 @@ class Test extends Component {
           <input placeholder="Search by Title" onChange={this.filterSearch} />
           <div className="button-container">
             <div className={' ' + toggleActive + toggleActiveReset}>
-              <button onClick={this.decrease} style={{ marginLeft: '0%' }}>
-                PREVIOUS PAGE
-              </button>
+              {this.state.counter === 1 ? (
+                ''
+              ) : (
+                <button onClick={this.decrease} style={{ marginLeft: '0%' }}>
+                  PREVIOUS PAGE
+                </button>
+              )}
               <button onClick={this.increase} style={{ marginLeft: '0%' }}>
                 NEXT PAGE
               </button>
+              <div>Page: {this.state.counter}</div>
             </div>
           </div>
         </div>
