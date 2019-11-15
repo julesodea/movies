@@ -42,8 +42,8 @@ export default class Trailer extends Component {
                     position: 'absolute',
                     top: 0,
                     left: 0,
-                    width: '640px',
-                    height: '360px'
+                    width: '320px',
+                    height: '180px'
                   }}
                   src={`https://www.youtube.com/embed/${trailer.key}`}
                   frameBorder="0"

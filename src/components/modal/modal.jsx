@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Portal from '../Portal/Portal';
+import Close from '../../img/close-button.svg';
 import './modal.styles.scss';
 
 export default class Modal extends Component {
@@ -9,7 +10,9 @@ export default class Modal extends Component {
       <Portal>
         {on && (
           <div className="modal-wrapper">
-            <button onClick={toggle}>Close</button>
+            <button onClick={toggle}>
+              <img src={Close} alt="close-button" />
+            </button>
             <div>{children}</div>
           </div>
         )}

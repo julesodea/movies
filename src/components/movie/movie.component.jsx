@@ -12,33 +12,40 @@ export const Movie = props => {
           src={`https://image.tmdb.org/t/p/original${props.movie.backdrop_path}`}
           alt="movie"
         />
-        <p className="font-thin text-sm">
+        <h1 className="movie-title">{props.movie.title}</h1>
+        <p className="movie-vote">
           Rating: {props.movie.vote_average} ({props.movie.vote_count} Voted)
         </p>
-        <p className="movie-overview">{props.movie.release_date}</p>
-        <h1 className="text-2xl font-bold">{props.movie.title}</h1>
+        <p className="movie-release">{props.movie.release_date}</p>
       </div>
 
       <Toggle>
         {({ on, toggle }) => (
           <div>
-            <button onClick={toggle}>Info</button>
+            <div className="movie-details" onClick={toggle}>
+              Movie Details
+            </div>
             <Modal on={on} toggle={toggle}>
               <div className="movie-modal">
-                <div
-                  className="image"
-                  style={{
-                    backgroundImage: `url(https://image.tmdb.org/t/p/original${props.movie.backdrop_path})`
-                  }}
+                <img
+                  className="movie-image"
+                  src={`https://image.tmdb.org/t/p/original${props.movie.backdrop_path}`}
+                  alt=""
                 />
                 <div>
-                  <h1>{props.movie.title}</h1>
-                  <p>{props.movie.release_date}</p>
-                  <p>{props.movie.vote_average}/10</p>
-                  <p>{props.movie.vote_count}</p>
+                  <h1 className="movie-title">{props.movie.title}</h1>
+                  <p className="movie-release">{props.movie.release_date}</p>
+                  <p className="movie-vote">
+                    {props.movie.vote_average}/10{' '}
+                    <span className="votes">
+                      {props.movie.vote_count} votes
+                    </span>
+                  </p>
+
+                  <p className="movie-overview">{props.movie.overview}</p>
                 </div>
               </div>
-              <Trailer id={props.movie.id} />
+              {/* <Trailer id={props.movie.id} /> */}
             </Modal>
           </div>
         )}
