@@ -78,20 +78,33 @@ class Test extends Component {
     return (
       <div>
         <div>
-          <h1>Search All Movies</h1>
-        </div>
-        <div>
-          <input placeholder="Search by Title" onChange={this.filterSearch} />
+          <input placeholder="Search Movie .." onChange={this.filterSearch} />
           <div className="button-container">
             <div className={' ' + toggleActive + toggleActiveReset}>
               {this.state.counter === 1 ? (
                 ''
               ) : (
-                <button onClick={this.decrease} style={{ marginLeft: '0%' }}>
+                <button
+                  onClick={this.decrease}
+                  style={{
+                    marginLeft: '0%',
+                    marginTop: '20px',
+                    marginBottom: '20px',
+                    marginRight: '10px'
+                  }}
+                >
                   PREVIOUS PAGE
                 </button>
               )}
-              <button onClick={this.increase} style={{ marginLeft: '0%' }}>
+              <button
+                onClick={this.increase}
+                style={{
+                  marginLeft: '0%',
+                  marginTop: '20px',
+                  marginBottom: '20px',
+                  marginRight: '10px'
+                }}
+              >
                 NEXT PAGE
               </button>
               <div>Page: {this.state.counter}</div>

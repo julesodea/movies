@@ -14,6 +14,15 @@
     width: 100%;
   }
 }
+
 button.more {
   margin-left: none;
+}
+.image {
+  height: 400px;
+  width: 100%;
+  background-position: 50%;
+  background-size: cover;
+  padding: 50px;
+  border-radius: 5px;
 }

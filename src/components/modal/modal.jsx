@@ -13,7 +13,7 @@ export default class Modal extends Component {
             <button onClick={toggle}>
               <img src={Close} alt="close-button" />
             </button>
-            <div>{children}</div>
+            <div style={{ marginTop: '80px' }}>{children}</div>
           </div>
         )}
       </Portal>

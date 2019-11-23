@@ -16,17 +16,20 @@ const FullList = props => (
       style={{ borderRadius: '10px' }}
       src={`https://image.tmdb.org/t/p/w500${props.movie.backdrop_path}`}
     />
-    <strong>{props.movie.title}</strong>
-    <br />
-    <strong>Released: </strong> {props.movie.release_date} <br />
-    <strong>Popularity: </strong> {props.movie.vote_average}
-    <p>{props.movie.overview}</p>
+    <strong style={{ fontSize: '1.5rem', marginBottom: '10px' }}>
+      {props.movie.title}
+    </strong>
+
     <Toggle>
       {({ on, toggle }) => (
         <div>
-          <button className="more" onClick={toggle}>
-            More
-          </button>
+          <div
+            style={{ color: 'red', fontWeight: '600' }}
+            className="more"
+            onClick={toggle}
+          >
+            Movie Details
+          </div>
           <Modal on={on} toggle={toggle}>
             <div className="movie-modal">
               <div
@@ -36,14 +39,26 @@ const FullList = props => (
                 }}
               />
               <div>
-                <h1>{props.movie.title}</h1>
-                <p>{props.movie.release_date}</p>
-                <p>{props.movie.vote_average}/10</p>
-                <p>{props.movie.vote_count}</p>
-                <p>{props.movie.overview}</p>
+                <h1 style={{ fontWeight: 'bold', fontSize: '3rem' }}>
+                  {props.movie.title}
+                </h1>
+                <p style={{ fontWeight: '400', fontSize: '14px' }}>
+                  {props.movie.release_date}
+                </p>
+                <p
+                  style={{ fontWeight: 'bold', fontSize: '12px', color: 'red' }}
+                >
+                  {props.movie.vote_average}/10
+                </p>
+                <p style={{ fontWeight: '400', fontSize: '10px' }}>
+                  {props.movie.vote_count} votes
+                </p>
+                <p style={{ fontWeight: '400', fontSize: '1rem' }}>
+                  {props.movie.overview}
+                </p>
               </div>
             </div>
-            <Trailer id={props.movie.id} />
+            {/* <Trailer id={props.movie.id} /> */}
           </Modal>
         </div>
       )}
