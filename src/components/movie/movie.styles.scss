@@ -1,16 +1,15 @@
 .movie-container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  background-color: white;
+  height: 300px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   border-radius: 5px;
-  padding: 25px;
-
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-size: cover;
+  cursor: pointer;
   transform: translateZ(0);
   transition: transform 0.25s ease-out;
   justify-content: space-between;
-
+  margin-bottom: 30px;
   p.movie-overview {
     font-size: 1rem;
     color: rgb(75, 75, 75);
@@ -21,27 +20,52 @@
   @media only screen and (max-width: 800px) {
     width: 100%;
   }
-  h1 {
-    font-size: 2.2rem;
-    font-weight: bold;
+  &:hover {
+    transform: scale(1.01);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.24),
+      0 1px 2px 0 rgba(0, 0, 0, 0.123);
   }
+  .overlay {
+    background-color: rgba(100, 100, 100, 0.411);
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+  }
+
   .movie-details {
-    color: rgb(236, 92, 92);
+    left: 5%;
+    position: absolute;
+    top: 90%;
+    color: rgb(240, 240, 240);
     font-weight: bold;
     cursor: pointer;
   }
   h1.movie-title {
+    color: white;
+    position: absolute;
+    top: 60%;
+    left: 5%;
     font-weight: bold;
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   p.movie-release {
-    color: rgb(112, 112, 112);
+    left: 5%;
+    position: absolute;
+    top: 73%;
+    color: rgb(230, 230, 230);
     font-size: 0.8rem;
     font-weight: bold;
   }
   p.movie-vote {
-    color: rgb(31, 31, 31);
+    left: 5%;
+    position: absolute;
+    top: 80%;
+    color: rgb(231, 231, 231);
     font-weight: bold;
+  }
+  span.small {
+    font-size: 10px;
   }
 }
 

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from "react";
 
 export default class Toggle extends Component {
   state = {
@@ -19,4 +19,3 @@ export default class Toggle extends Component {
     });
   }
 }
- 

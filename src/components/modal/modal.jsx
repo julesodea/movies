@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
-import Portal from '../Portal/Portal';
-import Close from '../../img/close-button.svg';
-import './modal.styles.scss';
+import React, { Component } from "react";
+import Portal from "../Portal/Portal";
+import Close from "../../img/close-button.svg";
+import "./modal.styles.scss";
+
 
 export default class Modal extends Component {
   render() {
@@ -13,7 +14,7 @@ export default class Modal extends Component {
             <button onClick={toggle}>
               <img src={Close} alt="close-button" />
             </button>
-            <div style={{ marginTop: '80px' }}>{children}</div>
+            <div style={{ marginTop: "80px" }}>{children}</div>
           </div>
         )}
       </Portal>

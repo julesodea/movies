@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import { MovieList } from './components/movie-list/movie-list.component';
-import Toggle from './components/toggle/Togglerpc';
+import { MovieList } from "./components/movie-list/movie-list.component";
 
-import Logo from './img/logo.png';
-import './App.css';
-import Test from './test/test.component';
-
-import Modal from './components/modal/modal';
+// import Logo from "./img/logo.png";
+import "./App.css";
+import Test from "./test/test.component";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -17,8 +14,8 @@ class App extends Component {
 
     this.state = {
       movies: [],
-      searchField: '',
-      page: '2',
+      searchField: "",
+      page: "2",
       trailers: []
     };
   }
@@ -42,19 +39,22 @@ class App extends Component {
     const filteredMovies = movies.filter(movie =>
       movie.title.toLowerCase().includes(searchField.toLowerCase())
     );
+
     return (
       <div className="App">
         <nav
           style={{
             display: `flex`,
             justifyContent: `space-around`,
-            alignItems: `center`
+            alignItems: `center`,
+            height: "50px"
           }}
         >
-          <img src={Logo} className="h-40" alt="imagemovie" />
+          {/* <img src={Logo} className="h-40" alt="imagemovie" /> */}
         </nav>
 
         <Test />
+
         <MovieList movies={filteredMovies} />
       </div>
     );
