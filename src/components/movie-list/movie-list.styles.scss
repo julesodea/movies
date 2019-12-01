@@ -8,7 +8,7 @@
   align-items: center;
 
   @media only screen and (max-width: 800px) {
-    display: flex;
+    grid-template-columns: 1fr;
     justify-content: center;
   }
 }
