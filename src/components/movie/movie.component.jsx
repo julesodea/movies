@@ -43,7 +43,7 @@ export const Movie = props => {
                         <p className="movie-vote">
                           {props.movie.vote_average}/10{" "}
                           <span className="votes">
-                            {props.movie.vote_count} votes
+                            {props.movie.vote_count} voted
                           </span>
                         </p>
 
