@@ -1,7 +1,7 @@
 {
   "name": "jpo",
   "version": "0.1.0",
-  "homepage": "https://julesodea.github.io/movieDB",
+  "homepage": "https://julesodea.github.io/movies",
   "private": true,
   "dependencies": {
     "gh-pages": "^2.1.1",
