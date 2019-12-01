@@ -17,12 +17,16 @@ export const Movie = props => {
             }}
           >
             <div className="overlay">
-              <h1 className="movie-title">{props.movie.title}</h1>
-              <p className="movie-vote">
-                {props.movie.vote_average}{" "}
-                <span className="small">({props.movie.vote_count} Votes)</span>
-              </p>
-              <p className="movie-release">{props.movie.release_date}</p>
+              <div className="details">
+                <h1 className="movie-title">{props.movie.title}</h1>
+                <p className="movie-vote">
+                  {props.movie.vote_average}{" "}
+                  <span className="small">
+                    ({props.movie.vote_count} Votes)
+                  </span>
+                </p>
+                <p className="movie-release">{props.movie.release_date}</p>
+              </div>
             </div>
 
             <Modal on={on} toggle={toggle}>
