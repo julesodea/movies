@@ -9,17 +9,26 @@
 }
 input {
   border-radius: 0;
-  border: 2px solid black;
+  border: none;
   padding: 12px 22px;
   outline: none;
   margin-right: 1rem;
   color: black;
   font-weight: bold;
+
   &::placeholder {
     color: black;
     font-weight: 400;
     font-size: 13px;
   }
+}
+input::-webkit-input-placeholder {
+  color: rgb(29, 29, 29);
+}
+input:focus::-webkit-input-placeholder {
+  color: rgb(167, 167, 167);
+  transition: 140ms;
+  font-size: 12px;
 }
 .button-container {
   @media only screen and (max-width: 800px) {
