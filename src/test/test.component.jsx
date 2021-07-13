@@ -3,7 +3,7 @@ import FullList from '../components/full-list/full-list.component';
 import './test.styles.scss';
 
 const URL = 'https://api.themoviedb.org/3/search/movie?api_key=';
-const API_KEY = process.env.REACT_APP_API_KEY;
+const API_KEY = '407a626cc10a99287f2964816749416a';
 const language = '&language=en-US';
 const query = '&query=';
 
@@ -17,7 +17,7 @@ class Test extends Component {
       page_num: 1,
       query: null,
       counter: 1,
-      toggle: false
+      toggle: false,
     };
   }
 
@@ -31,14 +31,14 @@ class Test extends Component {
         `&page=` +
         this.state.counter
     )
-      .then(response => response.json())
-      .then(results =>
+      .then((response) => response.json())
+      .then((results) =>
         this.setState({
-          movies: results.results
+          movies: results.results,
         })
       );
   }
-  filterSearch = event => {
+  filterSearch = (event) => {
     let term = event.target.value;
     if (this.state.movies === undefined || []) {
       this.setState({ counter: 1 });
@@ -46,7 +46,7 @@ class Test extends Component {
     this.setState(
       {
         query: term,
-        toggle: true
+        toggle: true,
       },
 
       () => this.fetchMovies(this.state.query)
@@ -56,7 +56,7 @@ class Test extends Component {
   increase = () => {
     this.setState(
       {
-        counter: this.state.counter + 1
+        counter: this.state.counter + 1,
       },
       () => this.fetchMovies(this.state.query)
     );
@@ -65,7 +65,7 @@ class Test extends Component {
     if (this.state.movies && this.state.counter !== 1) {
       this.setState(
         {
-          counter: this.state.counter - 1
+          counter: this.state.counter - 1,
         },
         () => this.fetchMovies(this.state.query)
       );
@@ -78,8 +78,8 @@ class Test extends Component {
     return (
       <div>
         <div>
-          <input placeholder="Search Movie .." onChange={this.filterSearch} />
-          <div className="button-container">
+          <input placeholder='Search Movie ..' onChange={this.filterSearch} />
+          <div className='button-container'>
             <div className={' ' + toggleActive + toggleActiveReset}>
               {this.state.counter === 1 ? (
                 ''
@@ -90,7 +90,7 @@ class Test extends Component {
                     marginLeft: '0%',
                     marginTop: '20px',
                     marginBottom: '20px',
-                    marginRight: '10px'
+                    marginRight: '10px',
                   }}
                 >
                   PREVIOUS PAGE
@@ -102,7 +102,7 @@ class Test extends Component {
                   marginLeft: '0%',
                   marginTop: '20px',
                   marginBottom: '20px',
-                  marginRight: '10px'
+                  marginRight: '10px',
                 }}
               >
                 NEXT PAGE
@@ -111,9 +111,9 @@ class Test extends Component {
             </div>
           </div>
         </div>
-        <div className="grid-container">
+        <div className='grid-container'>
           {this.state.movies
-            ? this.state.movies.map(movie => (
+            ? this.state.movies.map((movie) => (
                 <FullList key={movie.id} movie={movie} />
               ))
             : null}
